@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="hr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Birthday Wishlist 🎁</title>
-  <meta name="description" content="A running list of things I'd actually love to get." />
+  <title>Moja rođendanska lista želja 🎁</title>
+  <meta name="description" content="Lista stvari koje bih stvarno volio dobiti." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -62,11 +62,11 @@
     <header class="mb-16 text-center">
       <div class="mb-6 inline-block animate-floaty text-6xl sm:text-7xl">🎁</div>
       <h1 class="font-display text-4xl font-bold leading-tight sm:text-6xl">
-        My <span class="gradient-text animate-shimmer">Birthday</span> Wishlist
+        Moja <span class="gradient-text animate-shimmer">rođendanska</span> lista želja
       </h1>
       <p class="mx-auto mt-5 max-w-xl text-base text-slate-400 sm:text-lg">
-        Every year someone asks me what I want and my mind goes blank.
-        So — here's the running list. Bookmark it, no pressure, just ideas. 💛
+        Svake godine netko me pita što želim i mozak mi se isprazni.
+        Zato — evo liste koju stalno nadopunjavam. Spremi je, bez pritiska, samo ideje. 💛
       </p>
 
       <!-- filter pills -->
@@ -76,38 +76,32 @@
     <!-- WISH GRID -->
     <section id="wishlist" class="grid gap-5 sm:grid-cols-2"></section>
 
-    <p id="empty" class="hidden py-16 text-center text-slate-500">Nothing in this category yet 🤷</p>
+    <p id="empty" class="hidden py-16 text-center text-slate-500">Još ništa u ovoj kategoriji 🤷</p>
 
     <!-- FOOTER -->
     <footer class="mt-20 border-t border-white/5 pt-8 text-center text-sm text-slate-500">
-      <p>Made with cake and good intentions 🍰 · Last updated <span id="updated"></span></p>
+      <p>Napravljeno uz tortu i dobre namjere 🍰 · Zadnja izmjena <span id="updated"></span></p>
     </footer>
   </main>
 
   <script>
     /* ──────────────────────────────────────────────────────────────
-       EDIT YOUR WISHES HERE.  Add / remove items freely during the year.
-         title    – what it is
-         note     – optional one-liner (size, color, why, a link, etc.)
-         price    – "$" | "$$" | "$$$"  (rough budget hint, optional)
-         category – any label; it becomes a filter pill automatically
-         link     – optional URL (makes the card clickable)
+       OVDJE UREĐUJ SVOJE ŽELJE.  Slobodno dodaj / makni stavke tijekom godine.
+         title    – što je to
+         note     – neobavezna napomena (veličina, boja, zašto, itd.)
+         price    – "$" | "$$" | "$$$"  (okvirni budžet, neobavezno)
+         category – bilo koja oznaka; automatski postaje filter
+         link     – neobavezni URL (kartica tada postaje klikabilna)
        ────────────────────────────────────────────────────────────── */
-    const LAST_UPDATED = "June 2026";
+    const LAST_UPDATED = "lipanj 2026.";
 
     const WISHES = [
-      { title: "Mechanical keyboard", note: "Brown or tactile switches, 75% layout", price: "$$", category: "Tech", link: "" },
-      { title: "Espresso scale with timer", note: "The little ones that fit on a drip tray", price: "$", category: "Coffee", link: "" },
-      { title: "A really good chef's knife", note: "8-inch, Japanese steel if possible", price: "$$", category: "Kitchen", link: "" },
-      { title: "Noise-cancelling headphones", note: "Over-ear, for the commute & focus", price: "$$$", category: "Tech", link: "" },
-      { title: "Linen shirt", note: "Size M, earthy tones — olive, sand, rust", price: "$", category: "Clothes", link: "" },
-      { title: "Indoor plant", note: "Something hard to kill 😅 (pothos, snake plant)", price: "$", category: "Home", link: "" },
-      { title: "A good book", note: "Sci-fi or anything by an author I don't know yet", price: "$", category: "Books", link: "" },
-      { title: "Weekend away", note: "Genuinely just time somewhere new", price: "$$$", category: "Experiences", link: "" },
+      { title: "SteelSeries Arctis jastučići za slušalice", note: "AirWeave materijal, za Arctis model", price: "$", category: "Gaming", link: "https://steelseries.com/en-hr/gaming-accessories/arctis-ear-cushions?material=airweave&model=Arctis" },
+      { title: "Novo staklo za ekran iPhonea", note: "", price: "", category: "Tehnologija", link: "" },
     ];
 
     /* ── rendering ────────────────────────────────────────────────── */
-    const PRICE_LABEL = { "$": "Easy", "$$": "Mid", "$$$": "Splurge" };
+    const PRICE_LABEL = { "$": "Pristupačno", "$$": "Srednje", "$$$": "Luksuz" };
     const PRICE_STYLE = {
       "$":   "bg-emerald-500/10 text-emerald-300 ring-emerald-500/20",
       "$$":  "bg-amber-500/10 text-amber-300 ring-amber-500/20",
@@ -119,8 +113,8 @@
     const emptyMsg = document.getElementById("empty");
     document.getElementById("updated").textContent = LAST_UPDATED;
 
-    const categories = ["All", ...new Set(WISHES.map(w => w.category))];
-    let active = "All";
+    const categories = ["Sve", ...new Set(WISHES.map(w => w.category))];
+    let active = "Sve";
 
     function pillClass(on) {
       return "rounded-full px-4 py-1.5 text-sm font-medium transition " +
@@ -151,7 +145,7 @@
         </div>
         <h3 class="mt-4 font-display text-xl font-semibold text-slate-100">${w.title}</h3>
         ${w.note ? `<p class="mt-2 text-sm leading-relaxed text-slate-400">${w.note}</p>` : ""}
-        ${w.link ? `<span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-fuchsia-300">View example →</span>` : ""}
+        ${w.link ? `<span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-fuchsia-300">Pogledaj →</span>` : ""}
       `;
       const base = "group block rounded-2xl border border-white/10 bg-white/[.03] p-6 transition duration-300 card-glow hover:-translate-y-1";
       if (w.link) {
@@ -168,7 +162,7 @@
     function el(tag, cls) { const e = document.createElement(tag); e.className = cls; return e; }
 
     function renderWishes() {
-      const list = active === "All" ? WISHES : WISHES.filter(w => w.category === active);
+      const list = active === "Sve" ? WISHES : WISHES.filter(w => w.category === active);
       grid.innerHTML = "";
       list.forEach(w => grid.appendChild(card(w)));
       emptyMsg.classList.toggle("hidden", list.length > 0);
